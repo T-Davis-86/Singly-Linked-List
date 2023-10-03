@@ -19,6 +19,25 @@ class Linked_List:
                 break
             else:
                 currentNode = currentNode.nextNode
+    
+    def Insert(self,value,where):
+        currentNode = self._head
+        target = False
+        prevNode = None
+        while currentNode and target is False:
+            if currentNode.value == where:
+                target = True  
+            else:
+                prevNode = currentNode  
+                currentNode = currentNode.nextNode
+        if currentNode is None:
+                print("That number doesn't exist!")
+                return
+        else:
+            node = Node(value)
+            prevNode.nextNode = node
+            node.nextNode = currentNode
+            return 
 
     def popped(self,value):
         currentNode = self._head
@@ -59,5 +78,11 @@ example.append(7)
 example.append(8)
 example.Print()
 example.popped(5)
+example.Print()
+example.Insert(5,6)
+example.Print()
+example.popped(2)
+example.Print()
+example.Insert(2,3)
 example.Print()
 
